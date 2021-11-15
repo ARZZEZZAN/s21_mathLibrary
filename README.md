@@ -61,7 +61,7 @@ C mathematical operations are a group of functions in the standard library of th
 | 8 | fabs | computes absolute value of a floating-point value |
 | 9 | floor | returns the nearest integer not greater than the given value |
 | 10 | fmod | remainder of the floating-point division operation |
-| 11 | log | computes common logarithm |
+| 11 | log | computes natural logarithm |
 | 12 | pow | raises a number to the given power |
 | 13 | sin | computes sine |
 | 14 | sqrt | computes square root |
@@ -78,7 +78,10 @@ The functions of the math.h library must be implemented (only those directly des
 - Make it as a static library (with the s21_math.h header file)
 - The library must be developed according to the principles of structured programming; code duplication must be avoided
 - Use prefix s21_ before each function
-- Prepare full coverage of library functions code with unit-tests with the Check library
-- Provide a Makefile for building the library and tests (with targets all, clean, test, s21_math.a)
-- It is forbidden to copy math.h implementation of the standard library.
-- You must follow the logic of the standard library (in terms of checks, working with memory and behavior in emergency situations - tests will help you with that).
+- Prepare full coverage of library functions code with unit-tests with the Check library  
+- Unit-tests must check the results of your implementation by comparing them with the implementation of the standard math.h library
+- Unit tests must cover at least 80% of each function (checked using gcov)
+- Provide a Makefile for building the library and tests (with the targets all, clean, test, s21_math.a, gcov_report)
+- The gcov_report target should generate a gcov report in the form of an html page. Unit tests must be run with gcov flags to do this  
+- It is forbidden to copy the implementation of the standard math.h library and to use it anywhere, except unit-tests
+- You must follow the logic of the standard library (in terms of checks, working with memory and behavior in emergency situations - tests will help you with that)
