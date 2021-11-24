@@ -5,7 +5,7 @@ Implementation of your own version of the math.h library.
 The russian version of the task can be found in the repository.
 
 ## Contents
-
+0. [Preamble](#preamble)
 1. [Chapter I](#chapter-i) \
    1.1. [Introduction](#introduction)
 2. [Chapter II](#chapter-ii) \
@@ -13,7 +13,10 @@ The russian version of the task can be found in the repository.
 3. [Chapter III](#chapter-iii) \
    3.1. [Part 1](#part-1-implementing-the-mathh-library-functions)
 
-## Chapter I
+
+## Preamble  
+
+![s21_math](misc/eng/s21_math.png)
 
 Planet Earth, USA, New York State, 1956.
 
@@ -37,6 +40,8 @@ Without thinking long, I called the number mentioned in the paper:
 
 Well, I have to do it, I feel in my bones that a transistor revolution in mathematical computing is coming and I have to be on the front line!
 
+## Chapter I  
+
 ## Introduction
 
 In this project you will develop your own version of the standard math.h library in the C programming language. This library implements basic mathematical operations, which are then used in various algorithms. As part of the project you will learn the basics of computational methods and solidify knowledge of structured programming.
@@ -51,21 +56,22 @@ C mathematical operations are a group of functions in the standard library of th
 
 | No. | Function | Description |
 | --- | -------- | ----------- |
-| 1 | abs | computes absolute value of an integer value |
-| 2 | acos | computes arc cosine |
-| 3 | asin | computes arc sine |
-| 4 | atan | computes arc tangent |
-| 5 | ceil | returns the nearest integer not less than the given value |
-| 6 | cos | computes cosine |
-| 7 | exp | returns e raised to the given power |
-| 8 | fabs | computes absolute value of a floating-point value |
-| 9 | floor | returns the nearest integer not greater than the given value |
-| 10 | fmod | remainder of the floating-point division operation |
-| 11 | log | computes natural logarithm |
-| 12 | pow | raises a number to the given power |
-| 13 | sin | computes sine |
-| 14 | sqrt | computes square root |
-| 15 | tan | computes tangent |
+| 1 | `int abs(int x)` | computes absolute value of an integer value |
+| 2 | `long double acos(double x)` | computes arc cosine |
+| 3 | `long double asin(double x)` | computes arc sine |
+| 4 | `long double atan(double x)` | computes arc tangent |
+| 5 | `long double ceil(double x)` | returns the nearest integer not less than the given value |
+| 6 | `long double cos(double x)` | computes cosine |
+| 7 | `long double exp(double x)` | returns e raised to the given power |
+| 8 | `long double fabs(double x)` | computes absolute value of a floating-point value |
+| 9 | `long double floor(double x)` | returns the nearest integer not greater than the given value |
+| 10 | `long double fmod(double x, double y)` | remainder of the floating-point division operation |
+| 11 | `long double log(double x)` | computes natural logarithm |
+| 12 | `long double pow(double base, double exp)` | raises a number to the given power |
+| 13 | `long double sin(double x)` | computes sine |
+| 14 | `long double sqrt(double x)` | computes square root |
+| 15 | `long double tan(double x)` | computes tangent |  
+
 
 ## Chapter III
 
@@ -74,7 +80,7 @@ C mathematical operations are a group of functions in the standard library of th
 The functions of the math.h library must be implemented (only those directly described [above](#overview-of-some-mathh-functions)):
 
 - The library must be developed in C language of C11 standard using gcc compiler
-- The library code must be located in the src folder
+- The library code must be located in the src folder on the develop branch
 - Make it as a static library (with the s21_math.h header file)
 - The library must be developed according to the principles of structured programming; code duplication must be avoided
 - Use prefix s21_ before each function
@@ -85,3 +91,4 @@ The functions of the math.h library must be implemented (only those directly des
 - The gcov_report target should generate a gcov report in the form of an html page. Unit tests must be run with gcov flags to do this  
 - It is forbidden to copy the implementation of the standard math.h library and to use it anywhere, except unit-tests
 - You must follow the logic of the standard library (in terms of checks, working with memory and behavior in emergency situations - tests will help you with that)
+- The accuracy of e-6 must be observed
