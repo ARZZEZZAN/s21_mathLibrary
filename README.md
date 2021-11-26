@@ -91,4 +91,5 @@ The functions of the math.h library must be implemented (only those directly des
 - The gcov_report target should generate a gcov report in the form of an html page. Unit tests must be run with gcov flags to do this  
 - It is forbidden to copy the implementation of the standard math.h library and to use it anywhere, except unit-tests
 - You must follow the logic of the standard library (in terms of checks, working with memory and behavior in emergency situations - tests will help you with that)
-- The accuracy of e-6 must be observed
+- The total verifiable accuracy is 16 significant digits
+- Verifiable accuracy of the fractional part is up to 6 decimal places.
