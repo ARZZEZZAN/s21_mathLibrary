@@ -1,5 +1,8 @@
 # s21_math  
 
+> При старте работы над проектом просим вас постараться хронометрировать время работы над проектом.
+> По завершении работы над проектом просим вас ответить на два вопроса [в этом опросе](https://forms.gle/6nduWymT5Stz9N9D8)
+
 Implementation of your own version of the math.h library.  
 
 The russian version of the task can be found in the repository.
