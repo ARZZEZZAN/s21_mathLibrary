@@ -59,7 +59,7 @@
 
 | No. | Function | Description |
 | --- | -------- | ----------- |
-| 1 | `long int abs(int x)` | вычисляет абсолютное значение целого числа |
+| 1 | `int abs(int x)` | вычисляет абсолютное значение целого числа |
 | 2 | `long double acos(double x)` | вычисляет арккосинус |
 | 3 | `long double asin(double x)` | вычисляет арксинус |
 | 4 | `long double atan(double x)` | вычисляет арктангенс |
