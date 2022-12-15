@@ -151,6 +151,11 @@ START_TEST(test_dbl_min) {
 }
 END_TEST
 
+START_TEST(test_dbl_max) {
+  ck_assert_ldouble_eq(ceil(DBL_MAX), s21_ceil(DBL_MAX));
+}
+END_TEST
+
 Suite *suite_ceil(void) {
   Suite *s = suite_create("suite_ceil");
   TCase *tc = tcase_create("ceil_tc");
@@ -185,6 +190,7 @@ Suite *suite_ceil(void) {
   tcase_add_loop_test(tc, test_tolerance_pos, 0, 100);
   tcase_add_loop_test(tc, test_tolerance_neg, 0, 100);
   tcase_add_test(tc, test_dbl_min);
+  tcase_add_test(tc, test_dbl_max);
   suite_add_tcase(s, tc);
   return s;
 }
