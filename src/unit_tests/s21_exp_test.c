@@ -6,6 +6,24 @@ START_TEST(test_pos) {
 }
 END_TEST
 
+START_TEST(maximum) {
+  double x = DBL_MAX;
+  ck_assert_ldouble_eq(exp(x), s21_exp(x));
+}
+END_TEST
+
+START_TEST(minimum) {
+  double x = DBL_MIN;
+  ck_assert_ldouble_eq(exp(x), s21_exp(x));
+}
+END_TEST
+
+START_TEST(int_max) {
+  double x = INT_MAX;
+  ck_assert_ldouble_eq(exp(x), s21_exp(x));
+}
+END_TEST
+
 START_TEST(test_pos_less_than_one) {
   double x = 7.345e-29;
   ck_assert_ldouble_eq_tol(exp(x), s21_exp(x), 1e-6);
@@ -57,6 +75,9 @@ Suite *suite_exp(void) {
   TCase *tc = tcase_create("exp_tc");
 
   tcase_add_test(tc, test_pos);
+  tcase_add_test(tc, maximum);
+  tcase_add_test(tc, minimum);
+  tcase_add_test(tc, int_max);
   tcase_add_test(tc, test_neg);
   tcase_add_test(tc, test_zero);
   tcase_add_test(tc, test_pos_less_than_one);

@@ -55,4 +55,4 @@ long double s21_sin(double x);
 long double s21_sqrt(double x);
 //  вычисляет тангенс */*
 long double s21_tan(double x);
-#endif //  SRC_S21_MATH_H_
+#endif  //  SRC_S21_MATH_H_

@@ -114,19 +114,19 @@ START_TEST(test_neg_real) {
 END_TEST
 
 START_TEST(test_nan) {
-  double x = NAN;
+  double x = S21_NAN;
   ck_assert_ldouble_nan(s21_sqrt(x));
 }
 END_TEST
 
 START_TEST(test_pos_inf) {
-  double x = INFINITY;
+  double x = S21_INF;
   ck_assert_ldouble_eq(sqrt(x), s21_sqrt(x));
 }
 END_TEST
 
 START_TEST(test_neg_inf) {
-  double x = -INFINITY;
+  double x = -S21_INF;
   ck_assert_ldouble_nan(s21_sqrt(x));
 }
 END_TEST

@@ -36,22 +36,22 @@ START_TEST(test_one) {
 }
 
 START_TEST(test_nan_pos) {
-  double x = NAN;
+  double x = S21_NAN;
   ck_assert_ldouble_nan(s21_log(x));
 }
 
 START_TEST(test_nan_neg) {
-  double x = -NAN;
+  double x = -S21_NAN;
   ck_assert_ldouble_nan(s21_log(x));
 }
 
 START_TEST(test_inf_pos) {
-  double x = INFINITY;
+  double x = S21_INF;
   ck_assert_ldouble_infinite(s21_log(x));
 }
 
 START_TEST(test_inf_neg) {
-  double x = -INFINITY;
+  double x = -S21_INF;
   ck_assert_ldouble_nan(s21_log(x));
 }
 

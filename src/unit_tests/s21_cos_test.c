@@ -65,13 +65,13 @@ START_TEST(test_cos_eps_negative) {
 }
 END_TEST
 
-START_TEST(test_cos_inf) { ck_assert_ldouble_nan(s21_cos(INFINITY)); }
+START_TEST(test_cos_inf) { ck_assert_ldouble_nan(s21_cos(S21_INF)); }
 END_TEST
 
 START_TEST(test_cos_nan) { ck_assert_ldouble_nan(s21_cos(S21_NAN)); }
 END_TEST
 
-START_TEST(test_cos_minus_inf) { ck_assert_ldouble_nan(s21_cos(-INFINITY)); }
+START_TEST(test_cos_minus_inf) { ck_assert_ldouble_nan(s21_cos(-S21_INF)); }
 END_TEST
 
 START_TEST(test_cos_fractional_pi_values) {

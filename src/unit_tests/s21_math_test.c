@@ -24,7 +24,7 @@ void run_testcase(Suite *testcase) {
   srunner_run_all(sr, CK_NORMAL);
 
   srunner_free(sr);
-  sleep(1);
+  // sleep(1);
 }
 
 int main(void) {

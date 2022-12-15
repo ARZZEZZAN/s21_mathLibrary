@@ -11,14 +11,12 @@ long double s21_exp(double x) {
   } else {
     int n = 1;
     long double a = x, sn = 1;
-    if (x < 0.0)
-      a = -x;
-    while (sn > S21_SQRT_EPS) {
+    if (x < 0.0) a = -x;
+    for (int i = 0; i < 1600; i++) {
       sn *= a / n++;
       res += sn;
     }
-    if (x < 0.0)
-      res = 1 / res;
+    if (x < 0.0) res = 1 / res;
   }
   return res;
 }

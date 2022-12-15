@@ -31,13 +31,13 @@ START_TEST(test_sin_zero) {
 END_TEST
 
 START_TEST(test_sin_nan) {
-  double x = NAN;
+  double x = S21_NAN;
   ck_assert_ldouble_nan(s21_sin(x));
 }
 END_TEST
 
 START_TEST(test_sin_inf) {
-  double x = INFINITY;
+  double x = S21_INF;
   ck_assert_ldouble_nan(s21_sin(x));
 }
 END_TEST

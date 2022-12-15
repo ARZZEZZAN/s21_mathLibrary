@@ -67,13 +67,13 @@ START_TEST(test_tan_eps_negative) {
 }
 END_TEST
 
-START_TEST(test_tan_inf) { ck_assert_ldouble_nan(s21_tan(INFINITY)); }
+START_TEST(test_tan_inf) { ck_assert_ldouble_nan(s21_tan(S21_INF)); }
 END_TEST
 
-START_TEST(test_tan_nan) { ck_assert_ldouble_nan(s21_tan(NAN)); }
+START_TEST(test_tan_nan) { ck_assert_ldouble_nan(s21_tan(S21_NAN)); }
 END_TEST
 
-START_TEST(test_tan_minus_inf) { ck_assert_ldouble_nan(s21_tan(-INFINITY)); }
+START_TEST(test_tan_minus_inf) { ck_assert_ldouble_nan(s21_tan(-S21_INF)); }
 END_TEST
 START_TEST(test_tan_fractional_pi_values) {
   int i = _i;

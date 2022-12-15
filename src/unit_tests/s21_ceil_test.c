@@ -19,19 +19,19 @@ START_TEST(ceil_test3) {
 END_TEST
 
 START_TEST(ceil_test4) {
-  double x = INFINITY;
+  double x = S21_INF;
   ck_assert_ldouble_eq(s21_ceil(x), ceil(x));
 }
 END_TEST
 
 START_TEST(ceil_test5) {
-  double x = -INFINITY;
+  double x = -S21_INF;
   ck_assert_ldouble_eq(s21_ceil(x), ceil(x));
 }
 END_TEST
 
 START_TEST(ceil_test6) {
-  double x = NAN;
+  double x = S21_NAN;
   ck_assert_ldouble_nan(s21_ceil(x));
 }
 END_TEST
@@ -67,14 +67,14 @@ START_TEST(ceil_test11) {
 END_TEST
 
 START_TEST(test_inf) {
-  ck_assert_ldouble_infinite(s21_ceil(INFINITY));
-  ck_assert_ldouble_infinite(ceil(INFINITY));
+  ck_assert_ldouble_infinite(s21_ceil(S21_INF));
+  ck_assert_ldouble_infinite(ceil(S21_INF));
 }
 END_TEST
 
 START_TEST(test_nan) {
-  ck_assert_ldouble_nan(s21_ceil(NAN));
-  ck_assert_ldouble_nan(ceil(NAN));
+  ck_assert_ldouble_nan(s21_ceil(S21_NAN));
+  ck_assert_ldouble_nan(ceil(S21_NAN));
 }
 END_TEST
 
@@ -146,6 +146,11 @@ START_TEST(test_tolerance_neg) {
   ck_assert_ldouble_eq_tol(ceil(-a * i), s21_ceil(-a * i), TEST_EPS);
 }
 
+START_TEST(test_dbl_min) {
+  ck_assert_ldouble_eq(ceil(DBL_MIN), s21_ceil(DBL_MIN));
+}
+END_TEST
+
 Suite *suite_ceil(void) {
   Suite *s = suite_create("suite_ceil");
   TCase *tc = tcase_create("ceil_tc");
@@ -177,8 +182,9 @@ Suite *suite_ceil(void) {
   tcase_add_test(tc, test_negative_inf);
   tcase_add_test(tc, test_lesser_than_1);
   tcase_add_test(tc, test_positive_inf);
-  tcase_add_loop_test(tc, test_tolerance_pos, 0, 520);
-  tcase_add_loop_test(tc, test_tolerance_neg, 0, 520);
+  tcase_add_loop_test(tc, test_tolerance_pos, 0, 100);
+  tcase_add_loop_test(tc, test_tolerance_neg, 0, 100);
+  tcase_add_test(tc, test_dbl_min);
   suite_add_tcase(s, tc);
   return s;
 }

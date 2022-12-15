@@ -57,7 +57,7 @@ START_TEST(test_fractional_pow_neg_num) {
 END_TEST
 
 START_TEST(test_zero_power) {
-  double nums[6] = {1.12, -34.45, NAN, -NAN, INFINITY, -INFINITY};
+  double nums[6] = {1.12, -34.45, S21_NAN, -S21_NAN, S21_INF, -S21_INF};
   double p = 0;
   int i = _i;
   ck_assert_ldouble_eq_tol(pow(nums[i], p), s21_pow(nums[i], p), 1e-6);
@@ -66,7 +66,7 @@ END_TEST
 
 START_TEST(test_one_num) {
   double num = 1.0;
-  double p[7] = {1, 1.23, -1.23, NAN, -NAN, INFINITY, -INFINITY};
+  double p[7] = {1, 1.23, -1.23, S21_NAN, -S21_NAN, S21_INF, -S21_INF};
   int i = _i;
   ck_assert_ldouble_eq_tol(pow(num, p[i]), s21_pow(num, p[i]), 1e-6);
 }
@@ -80,32 +80,32 @@ START_TEST(test_one_power) {
 END_TEST
 
 START_TEST(test_nan_power) {
-  double nums[6] = {1.12, -34.45, NAN, -NAN, INFINITY, -INFINITY};
-  double p = NAN;
+  double nums[6] = {1.12, -34.45, S21_NAN, -S21_NAN, S21_INF, -S21_INF};
+  double p = S21_NAN;
   int i = _i;
   ck_assert_ldouble_nan(s21_pow(nums[i], p));
 }
 END_TEST
 
 START_TEST(test_nan_num) {
-  double num = NAN;
-  double p[8] = {1, -1, -11.1, 11.1, INFINITY, -INFINITY, NAN, -NAN};
+  double num = S21_NAN;
+  double p[8] = {1, -1, -11.1, 11.1, S21_INF, -S21_INF, S21_NAN, -S21_NAN};
   int i = _i;
   ck_assert_ldouble_nan(s21_pow(num, p[i]));
 }
 END_TEST
 
 START_TEST(test_neg_nan_power) {
-  double nums[6] = {1.12, -34.45, NAN, -NAN, INFINITY, -INFINITY};
-  double p = -NAN;
+  double nums[6] = {1.12, -34.45, S21_NAN, -S21_NAN, S21_INF, -S21_INF};
+  double p = -S21_NAN;
   int i = _i;
   ck_assert_ldouble_nan(s21_pow(nums[i], p));
 }
 END_TEST
 
 START_TEST(test_neg_nan_num) {
-  double num = -NAN;
-  double p[8] = {1, -1, -11.1, 11.1, INFINITY, -INFINITY, NAN, -NAN};
+  double num = -S21_NAN;
+  double p[8] = {1, -1, -11.1, 11.1, S21_INF, -S21_INF, S21_NAN, -S21_NAN};
   int i = _i;
   ck_assert_ldouble_nan(s21_pow(num, p[i]));
 }
@@ -126,12 +126,12 @@ START_TEST(test_zero_pos_pow) {
 
 START_TEST(test_minus_one_inf_pow) {
   double num = -1;
-  ck_assert_ldouble_eq_tol(pow(num, INFINITY), s21_pow(num, INFINITY), 1e-6);
+  ck_assert_ldouble_eq_tol(pow(num, S21_INF), s21_pow(num, S21_INF), 1e-6);
 }
 
 START_TEST(test_fract_num_neg_inf_pow) {
   double num = 0.123;
-  double p = -INFINITY;
+  double p = -S21_INF;
   ck_assert_ldouble_infinite(s21_pow(num, p));
   ck_assert_ldouble_infinite(pow(num, p));
 }
@@ -139,14 +139,14 @@ END_TEST
 
 START_TEST(test_fract_num_pos_inf_pow) {
   double num = 0.123;
-  double p = INFINITY;
+  double p = S21_INF;
   ck_assert_ldouble_eq_tol(pow(num, p), s21_pow(num, p), 1e-6);
 }
 END_TEST
 
 START_TEST(test_num_neg_pos_pow) {
   double num = 13;
-  double p = -INFINITY;
+  double p = -S21_INF;
   ck_assert_ldouble_eq_tol(pow(num, p), s21_pow(num, p), 1e-6);
 }
 END_TEST
@@ -160,14 +160,14 @@ END_TEST
 
 START_TEST(test_num_inf_pow) {
   double num = 13;
-  double p = INFINITY;
+  double p = S21_INF;
   ck_assert_ldouble_infinite(s21_pow(num, p));
   ck_assert_ldouble_infinite(pow(num, p));
 }
 END_TEST
 
 START_TEST(test_pos_inf_neg_pow) {
-  double num = INFINITY;
+  double num = S21_INF;
   double p = -12;
   ck_assert_ldouble_eq_tol(pow(num, p), s21_pow(num, p), 1e-6);
 }
@@ -181,7 +181,7 @@ START_TEST(test_neg_inf_pos_pow) {
 END_TEST
 
 START_TEST(test_neg_inf_pos_odd_pow) {
-  double num = -INFINITY;
+  double num = -S21_INF;
   double p = 13;
   ck_assert_ldouble_infinite(s21_pow(num, p));
   ck_assert_ldouble_infinite(pow(num, p));
@@ -189,17 +189,31 @@ START_TEST(test_neg_inf_pos_odd_pow) {
 END_TEST
 
 START_TEST(test_neg_inf_neg_pow) {
-  double num = -INFINITY;
+  double num = -S21_INF;
   double p = -12;
   ck_assert_ldouble_eq_tol(pow(num, p), s21_pow(num, p), 1e-6);
 }
 END_TEST
 
 START_TEST(test_pos_inf_pos_pow) {
-  double num = INFINITY;
+  double num = S21_INF;
   double p = 12;
   ck_assert_ldouble_infinite(s21_pow(num, p));
   ck_assert_ldouble_infinite(pow(num, p));
+}
+END_TEST
+
+START_TEST(maximum) {
+  double num = DBL_MAX;
+  double p = -10;
+  ck_assert_ldouble_eq_tol(pow(num, p), s21_pow(num, p), 1e-6);
+}
+END_TEST
+
+START_TEST(minimum) {
+  double num = DBL_MIN;
+  double p = 10;
+  ck_assert_ldouble_eq_tol(pow(num, p), s21_pow(num, p), 1e-6);
 }
 END_TEST
 
@@ -235,6 +249,9 @@ Suite *suite_pow(void) {
   tcase_add_test(tc, test_neg_inf_pos_odd_pow);
   tcase_add_test(tc, test_neg_inf_neg_pow);
   tcase_add_test(tc, test_pos_inf_pos_pow);
+
+  tcase_add_test(tc, maximum);
+  tcase_add_test(tc, minimum);
 
   suite_add_tcase(s, tc);
   return s;
