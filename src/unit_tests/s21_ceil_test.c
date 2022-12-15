@@ -147,12 +147,17 @@ START_TEST(test_tolerance_neg) {
 }
 
 START_TEST(test_dbl_min) {
-  ck_assert_ldouble_eq(ceil(DBL_MIN), s21_ceil(DBL_MIN));
+  double num = DBL_MIN;
+  double orig = ceil(num);
+  double mmyy = s21_ceil(num);
+  ck_assert_ldouble_eq(orig, mmyy);
 }
 END_TEST
 
 START_TEST(test_dbl_max) {
-  ck_assert_ldouble_eq(ceil(DBL_MAX), s21_ceil(DBL_MAX));
+  double orig = ceil(DBL_MAX);
+  double mmyy = s21_ceil(DBL_MAX);
+  ck_assert_ldouble_eq(orig, mmyy);
 }
 END_TEST
 
